@@ -26,6 +26,7 @@ public class DeadLockExample {
         //submit Callable tasks to be executed by thread pool
         Future<String> future = executor.submit(thr1);
         list.add(future);
+
         future = executor.submit(thr2);
         list.add(future);
         //add Future to the list, we can get return value using Future

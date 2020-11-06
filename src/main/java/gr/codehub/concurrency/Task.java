@@ -24,14 +24,14 @@ public class Task implements  Runnable{
             }
             Thread.yield();
 
-//            try {
-//                Thread.sleep(100);
-//                synchronized(balance) {
-//                    balance.setBalance(i);
-//                }
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(100);
+                synchronized(balance) {
+                    balance.setBalance(i);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
         }

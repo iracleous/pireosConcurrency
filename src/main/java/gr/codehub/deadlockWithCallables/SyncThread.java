@@ -1,6 +1,7 @@
 package gr.codehub.deadlockWithCallables;
 
 import java.util.concurrent.Callable;
+
 public class SyncThread implements Callable<String> {
     private Object obj1;
     private Object obj2;
