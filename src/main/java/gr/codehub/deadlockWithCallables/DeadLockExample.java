@@ -14,28 +14,24 @@ public class DeadLockExample {
         Object o2 = new Object();
 
         SyncThread thr1 = new SyncThread(o1, o2);
-        SyncThread thr2 = new SyncThread( o2, o1);
-
+        SyncThread thr2 = new SyncThread(o2, o1);
 
 
         ExecutorService executor = Executors.newFixedThreadPool(10);
 
 
-
         List<Future<String>> list = new ArrayList<>();
 
 
-
-            //submit Callable tasks to be executed by thread pool
-            Future<String> future = executor.submit(thr1);
-            list.add(future);
-            future = executor.submit(thr2);
-            list.add(future);
-            //add Future to the list, we can get return value using Future
-
+        //submit Callable tasks to be executed by thread pool
+        Future<String> future = executor.submit(thr1);
+        list.add(future);
+        future = executor.submit(thr2);
+        list.add(future);
+        //add Future to the list, we can get return value using Future
 
 
-        for( Future<String> fut :list){
+        for (Future<String> fut : list) {
             try {
                 System.out.println(fut.get());
             } catch (InterruptedException e) {
@@ -45,10 +41,6 @@ public class DeadLockExample {
             }
         }
         executor.shutdown();
-
-
-
-
 
 
     }
